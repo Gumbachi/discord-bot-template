@@ -10,20 +10,14 @@ except FileNotFoundError:
     pass
 
 # rename project directory
-while True:
-    project_name = input("Name the project >> ")
+project_name = os.path.basename(os.getcwd())
+os.rename("ProjectName", project_name)
 
-    try:
-        os.rename("ProjectName", project_name)
-        break
-    except FileExistsError:
-        print("Folder already exists, please remove it and try again")
-    except FileNotFoundError:
-        print("Probably an invalid name. Please use a better name")
-
+# create README
 with open("README.md", "w") as f:
     f.write(f"# {project_name}")
 
+# create env file
 token = input("Enter Token >> ")
 with open(".env", 'w') as f:
     f.write(token)
