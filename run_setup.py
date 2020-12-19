@@ -20,7 +20,7 @@ with open("README.md", "w") as f:
 # create env file
 token = input("Enter Token >> ")
 with open(".env", 'w') as f:
-    f.write(token)
+    f.write(f"TOKEN={token}")
 
 # install env
 subprocess.call(["env_install.bat"])
